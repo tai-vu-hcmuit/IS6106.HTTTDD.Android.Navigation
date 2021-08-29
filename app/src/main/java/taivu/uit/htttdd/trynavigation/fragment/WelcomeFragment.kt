@@ -7,8 +7,6 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
-import kotlinx.android.synthetic.main.fragment_welcome.*
-import taivu.uit.htttdd.trynavigation.R
 import taivu.uit.htttdd.trynavigation.databinding.FragmentWelcomeBinding
 
 class WelcomeFragment : Fragment() {
@@ -32,10 +30,10 @@ class WelcomeFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        text_view_username.text = args.username
-        text_view_password.text = args.password
+        binding.textViewUsername.text = args.username
+        binding.textViewPassword.text = args.password
 
-        button_ok.setOnClickListener {
+        binding.buttonOk.setOnClickListener {
             val action = WelcomeFragmentDirections.actionWelcomeFragmentToHomeFragment()
             findNavController().navigate(action)
         }

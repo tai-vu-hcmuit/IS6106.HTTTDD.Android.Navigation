@@ -7,8 +7,6 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
-import kotlinx.android.synthetic.main.fragment_login.*
-import taivu.uit.htttdd.trynavigation.R
 import taivu.uit.htttdd.trynavigation.databinding.FragmentLoginBinding
 
 class LoginFragment : Fragment() {
@@ -35,11 +33,11 @@ class LoginFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         val usernameDeepLink = args.username
-        edit_text_username.setText(usernameDeepLink)
+        binding.editTextUsername.setText(usernameDeepLink)
 
-        button_signin.setOnClickListener {
-            val username = edit_text_username.text.toString()
-            val password = edit_text_password.text.toString()
+        binding.buttonSignin.setOnClickListener {
+            val username = binding.editTextUsername.text.toString()
+            val password = binding.editTextPassword.text.toString()
 
             val action = LoginFragmentDirections.actionLoginFragmentToWelcomeFragment(username, password)
             findNavController().navigate(action)
