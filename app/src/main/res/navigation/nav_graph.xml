@@ -47,4 +47,21 @@
             app:destination="@id/homeFragment"
             app:popUpTo="@id/homeFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/settingFragment"
+        android:name="taivu.uit.htttdd.trynavigation.fragment.SettingFragment"
+        android:label="Settings"
+        tools:layout="@layout/fragment_setting" />
+    <fragment
+        android:id="@+id/termsFragment"
+        android:name="taivu.uit.htttdd.trynavigation.fragment.TermsFragment"
+        android:label="Terms"
+        tools:layout="@layout/fragment_terms" />
+    <action
+        android:id="@+id/action_global_termsFragment"
+        app:destination="@id/termsFragment"
+        app:enterAnim="@anim/slide_in_top"
+        app:exitAnim="@anim/slide_out_bottom"
+        app:popEnterAnim="@anim/slide_in_bottom"
+        app:popExitAnim="@anim/slide_out_top" />
 </navigation>

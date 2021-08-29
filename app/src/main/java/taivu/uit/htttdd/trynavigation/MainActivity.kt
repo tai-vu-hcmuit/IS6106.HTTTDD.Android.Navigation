@@ -2,10 +2,13 @@ package taivu.uit.htttdd.trynavigation
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.Menu
+import android.view.MenuItem
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.ui.AppBarConfiguration
+import androidx.navigation.ui.onNavDestinationSelected
 import androidx.navigation.ui.setupActionBarWithNavController
 import taivu.uit.htttdd.trynavigation.databinding.ActivityMainBinding
 
@@ -29,5 +32,21 @@ class MainActivity : AppCompatActivity() {
 
     override fun onSupportNavigateUp(): Boolean {
         return navController.navigateUp() || super.onSupportNavigateUp()
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.options_menu, menu)
+        return true
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        return if (item.itemId == R.id.termsFragment) {
+            val action = NavGraphDirections.actionGlobalTermsFragment()
+
+            navController.navigate(action)
+            true
+        } else {
+            return item.onNavDestinationSelected(navController)  || super.onOptionsItemSelected(item)
+        }
     }
 }
