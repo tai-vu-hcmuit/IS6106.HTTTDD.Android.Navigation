@@ -6,12 +6,14 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
+import androidx.navigation.fragment.navArgs
 import kotlinx.android.synthetic.main.fragment_login.*
 import taivu.uit.htttdd.trynavigation.R
 import taivu.uit.htttdd.trynavigation.databinding.FragmentLoginBinding
 
 class LoginFragment : Fragment() {
 
+    private val args: LoginFragmentArgs by navArgs()
     private var _binding: FragmentLoginBinding? = null
 
     // This property is only valid between onCreateView and
@@ -31,6 +33,9 @@ class LoginFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        val usernameDeepLink = args.username
+        edit_text_username.setText(usernameDeepLink)
 
         button_signin.setOnClickListener {
             val username = edit_text_username.text.toString()
